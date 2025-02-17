@@ -190,7 +190,7 @@ Für Fragen oder Anregungen kannst Du Dich gerne an Ralf Krümmel wenden:
 ---
 
 *Viel Spaß mit der Gemini Gradio App und beim Experimentieren mit moderner KI-Interaktion!*
-```
+
 ![image](https://github.com/user-attachments/assets/c785771f-83d1-48c9-b8a3-e9ab075b65df)
 
 ![image](https://github.com/user-attachments/assets/7a721100-f290-436d-ab07-c85d2f8ede50)
