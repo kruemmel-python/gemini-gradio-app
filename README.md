@@ -1,4 +1,5 @@
 # Gemini Gradio App
+**Hinweis:** Im Projektordner befindet sich eine kostenlose PDF-Version des Taschenbuchs "Die Kunst des Prompting", das hilfreiche Informationen und Anleitungen zur Erstellung effektiver Prompts für KI-Modelle bietet.
 
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
