@@ -27,9 +27,13 @@ Dieses Projekt wurde von **Ralf Krümmel** entwickelt und demonstriert Best Prac
 
 ## Über das Projekt
 
-Die **Gemini Gradio App** bietet eine interaktive Oberfläche zur Kommunikation mit der Gemini API und zur Nutzung von OpenAI DALL·E für die Bildgenerierung. Die Anwendung ist in mehrere Module unterteilt, wobei jeder „Tab“ eine eigene Funktionalität kapselt (z. B. Audio-Interaktion, Chat & Bildanalyse, Videoanalyse, Dateianalyse, Inhaltserstellung & Export, DALL·E Bildgenerierung und einen Informationsbereich).
+Die **Gemini Gradio App** bietet eine interaktive Oberfläche zur Kommunikation mit der Gemini API und zur Nutzung von OpenAI DALL·E für die Bildgenerierung.  
+Ein besonderes Highlight dieses Projekts ist die **Bildtransformation**:  
+Die Transformation erfolgt über ein eigens entwickeltes neuronales Netzwerk, das ein völlig neues Bild **pixelweise** auf Basis der Farbwerte (Farbpixel) erstellt. Dabei wird jedes einzelne Pixel neu berechnet – so entsteht ein Bild, das in Struktur und Farbdynamik völlig eigenständig ist.
 
-Das Ziel des Projekts ist es, einen klar strukturierten, modularen und wartbaren Code zu präsentieren – ideal geeignet für den Unterricht und für den praktischen Einsatz in modernen Python-Projekten.
+Das Projekt ist in mehrere Module unterteilt, wobei jeder „Tab“ eine eigene Funktionalität kapselt (z. B. Audio-Interaktion, Chat & Bildanalyse, Videoanalyse, Dateianalyse, Inhaltserstellung & Export, DALL·E Bildgenerierung und einen Informationsbereich).  
+Ziel ist es, einen klar strukturierten, modularen und wartbaren Code bereitzustellen – ideal für den Unterricht und den praktischen Einsatz in modernen Python-Projekten.
+
 
 ---
 
@@ -39,6 +43,7 @@ Das Ziel des Projekts ist es, einen klar strukturierten, modularen und wartbaren
 - **Objektorientierte Architektur:** Klassen kapseln die Logik und UI-Elemente, was den Code übersichtlich und wartbar macht.
 - **Interaktion mit der Gemini API:** Senden von Audio-, Bild-, Video- und Datei-Anfragen an die Gemini API.
 - **Bildgenerierung mit DALL·E:** Integration der OpenAI DALL·E API zur Bildgenerierung und anschließenden Transformation.
+- - **Pixelweise Transformation:** Ein eigens entwickeltes neuronales Netzwerk transformiert das Eingabebild in unterschiedliche Bildformate, indem es **pixelweise** neue Farbinformationen berechnet – so entsteht ein völlig neues Bild.
 - **Modernste Python 3.12 Features:** Verwendung von strukturellem Pattern Matching, Union-Typ-Operatoren und präziseren Fehlermeldungen.
 - **Gradio-basierte UI:** Eine intuitive und interaktive Benutzeroberfläche, die sowohl als gesamtes Projekt als auch in Einzelkomponenten ausgeführt werden kann.
 
