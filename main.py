@@ -15,7 +15,7 @@ from tabs.tab_create import CreateTab
 from tabs.tab_dalle import DalleTab
 from tabs.tab_info import InfoTab
 from tabs.tab_training import TrainingTabs
-from tabs.tab_mitarbeitertest import MitarbeiterTest
+from tabs.tab_mitarbeitertest import MitarbeiterTestEUAIAct
 
 def main():
     app = GeminiApp()
@@ -31,7 +31,7 @@ def main():
             DalleTab(app).build_tab()
             InfoTab().build_tab()
             TrainingTabs().build_tab()
-            MitarbeiterTest().build_tab()
+            MitarbeiterTestEUAIAct().build_tab()
     demo.launch(share=True)
 
 if __name__ == "__main__":
