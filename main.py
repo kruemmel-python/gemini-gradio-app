@@ -14,6 +14,8 @@ from tabs.tab_file import FileTab
 from tabs.tab_create import CreateTab
 from tabs.tab_dalle import DalleTab
 from tabs.tab_info import InfoTab
+from tabs.tab_training import TrainingTabs
+from tabs.tab_mitarbeitertest import MitarbeiterTest
 
 def main():
     app = GeminiApp()
@@ -28,6 +30,8 @@ def main():
             CreateTab(app).build_tab()
             DalleTab(app).build_tab()
             InfoTab().build_tab()
+            TrainingTabs().build_tab()
+            MitarbeiterTest().build_tab()
     demo.launch(share=True)
 
 if __name__ == "__main__":

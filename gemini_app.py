@@ -159,7 +159,7 @@ class GeminiApp:
             logger.debug(f"Verwendeter MIME-Typ: {mime_type}")
             audio_part = types.Part.from_bytes(data=audio_bytes, mime_type=mime_type)
             response = self.client.models.generate_content(
-                model='gemini-2.0-flash-exp',
+                model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=[prompt, audio_part]
             )
             logger.info("Anfrage (Audio) gesendet.")
@@ -209,7 +209,7 @@ class GeminiApp:
                     contents.append(types.Part.from_bytes(data=image_bytes, mime_type=mime_type))
                     logger.debug(f"Bild als Part-Objekt hinzugefügt (MIME-Typ: {mime_type}).")
             response = self.client.models.generate_content(
-                model='gemini-2.0-flash-exp',
+                model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=contents
             )
             logger.info("Anfrage(Chat & Bild) gesendet.")
@@ -252,7 +252,7 @@ class GeminiApp:
             logger.debug(f"Verwendeter MIME-Typ für Video: {mime_type}")
             video_part = types.Part.from_bytes(data=video_bytes, mime_type=mime_type)
             response = self.client.models.generate_content(
-                model='gemini-2.0-flash-exp',
+                model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=[prompt, video_part]
             )
             logger.info("Anfrage(Video) gesendet.")
@@ -309,7 +309,7 @@ class GeminiApp:
             logger.debug(f"Verwendeter MIME-Typ für Datei: {mime_type}")
             contents = [prompt, types.Part.from_bytes(data=file_bytes, mime_type=mime_type)]
             response = self.client.models.generate_content(
-                model='gemini-2.0-flash-exp',
+                model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=contents
             )
             logger.info("Anfrage(Datei) gesendet.")
@@ -328,7 +328,7 @@ class GeminiApp:
         try:
             self.validate_prompt(prompt)
             response = self.client.models.generate_content(
-                model='gemini-2.0-flash-exp',
+                model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=[prompt]
             )
             content_text = response.text
