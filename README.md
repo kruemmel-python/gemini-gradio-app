@@ -19,6 +19,7 @@ Dieses Projekt wurde von **Ralf Krümmel** entwickelt und demonstriert Best Prac
 - [Nutzung](#nutzung)
   - [Integrierter Modus](#integrierter-modus)
   - [Standalone-Modus einzelner Tabs](#standalone-modus-einzelner-tabs)
+- [Mitarbeiterschulung & Mitarbeitertest](#mitarbeiterschulung--mitarbeitertest)
 - [Beispiele](#beispiele)
 - [Mitwirken](#mitwirken)
 - [Lizenz](#lizenz)
@@ -30,11 +31,10 @@ Dieses Projekt wurde von **Ralf Krümmel** entwickelt und demonstriert Best Prac
 
 Die **Gemini Gradio App** bietet eine interaktive Oberfläche zur Kommunikation mit der Gemini API und zur Nutzung von OpenAI DALL·E für die Bildgenerierung.  
 Ein besonderes Highlight dieses Projekts ist die **Bildtransformation**:  
-Die Transformation erfolgt über ein eigens entwickeltes neuronales Netzwerk, das ein völlig neues Bild **pixelweise** auf Basis der Farbwerte (Farbpixel) erstellt. Dabei wird jedes einzelne Pixel neu berechnet – so entsteht ein Bild, das in Struktur und Farbdynamik völlig eigenständig ist.
+Die Transformation erfolgt über ein eigens entwickeltes neuronales Netzwerk, das ein völlig neues Bild **pixelweise** auf Basis der Farbwerte erstellt. Dabei wird jedes einzelne Pixel neu berechnet – so entsteht ein Bild, das in Struktur und Farbdynamik völlig eigenständig ist.
 
-Das Projekt ist in mehrere Module unterteilt, wobei jeder „Tab“ eine eigene Funktionalität kapselt (z. B. Audio-Interaktion, Chat & Bildanalyse, Videoanalyse, Dateianalyse, Inhaltserstellung & Export, DALL·E Bildgenerierung und einen Informationsbereich).  
+Das Projekt ist in mehrere Module unterteilt, wobei jeder „Tab“ eine eigene Funktionalität kapselt (z. B. Audio-Interaktion, Chat & Bildanalyse, Videoanalyse, Dateianalyse, Inhaltserstellung & Export, DALL·E Bildgenerierung, Informationsbereich, Mitarbeiterschulung und Mitarbeitertest).  
 Ziel ist es, einen klar strukturierten, modularen und wartbaren Code bereitzustellen – ideal für den Unterricht und den praktischen Einsatz in modernen Python-Projekten.
-
 
 ---
 
@@ -44,9 +44,11 @@ Ziel ist es, einen klar strukturierten, modularen und wartbaren Code bereitzuste
 - **Objektorientierte Architektur:** Klassen kapseln die Logik und UI-Elemente, was den Code übersichtlich und wartbar macht.
 - **Interaktion mit der Gemini API:** Senden von Audio-, Bild-, Video- und Datei-Anfragen an die Gemini API.
 - **Bildgenerierung mit DALL·E:** Integration der OpenAI DALL·E API zur Bildgenerierung und anschließenden Transformation.
-- - **Pixelweise Transformation:** Ein eigens entwickeltes neuronales Netzwerk transformiert das Eingabebild in unterschiedliche Bildformate, indem es **pixelweise** neue Farbinformationen berechnet – so entsteht ein völlig neues Bild.
+  - **Pixelweise Transformation:** Ein eigens entwickeltes neuronales Netzwerk transformiert das Eingabebild in unterschiedliche Bildformate, indem es **pixelweise** neue Farbinformationen berechnet – so entsteht ein völlig neues Bild.
 - **Modernste Python 3.12 Features:** Verwendung von strukturellem Pattern Matching, Union-Typ-Operatoren und präziseren Fehlermeldungen.
 - **Gradio-basierte UI:** Eine intuitive und interaktive Benutzeroberfläche, die sowohl als gesamtes Projekt als auch in Einzelkomponenten ausgeführt werden kann.
+- **Mitarbeiterschulung:** Ein eigener Tab, der umfassende Schulungsinhalte zum verantwortungsvollen Umgang mit KI, insbesondere im Hinblick auf den EU AI Act, bereitstellt.
+- **Mitarbeitertest:** Interaktive Tests (auch in erweiterten Versionen verfügbar), mit denen Mitarbeiter ihr Wissen zu den Compliance-Anforderungen und rechtlichen Rahmenbedingungen des EU AI Act überprüfen können.
 
 ---
 
@@ -66,7 +68,9 @@ gemini-gradio-app/
     ├── tab_file.py       # Dateianalyse (Standalone & integriert)
     ├── tab_create.py     # Inhaltserstellung & Export (Standalone & integriert)
     ├── tab_dalle.py      # DALL·E Bildgenerierung & -Transformation (Standalone & integriert)
-    └── tab_info.py       # Informationen & Warnungen zur KI-Arbeit (Standalone & integriert)
+    ├── tab_info.py       # Informationen & Warnungen zur KI-Arbeit (Standalone & integriert)
+    ├── tab_training.py   # Mitarbeiterschulung: Umfassende Schulungsinhalte zu KI und EU AI Act
+    └── tab_mitarbeitertest.py  # Mitarbeitertest: Interaktive Tests zu EU AI Act und Compliance
 ```
 
 Jeder Tab bietet zwei Methoden:
@@ -156,7 +160,32 @@ Jeder Tab kann auch eigenständig getestet werden. Beispielsweise:
   python tabs/tab_audio.py
   ```
 
-- Analog gilt dies für `tab_chat.py`, `tab_video.py`, `tab_file.py`, `tab_create.py`, `tab_dalle.py` und `tab_info.py`.
+- Analog gilt dies für `tab_chat.py`, `tab_video.py`, `tab_file.py`, `tab_create.py`, `tab_dalle.py`, `tab_info.py`, **`tab_training.py`** (Mitarbeiterschulung) und **`tab_mitarbeitertest.py`** (Mitarbeitertest).
+
+---
+
+## Mitarbeiterschulung & Mitarbeitertest
+
+### Mitarbeiterschulung
+
+Der **Mitarbeiterschulung-Tab** (Implementierung in `tabs/tab_training.py`) bietet umfassende Schulungsinhalte für den Umgang mit Künstlicher Intelligenz – insbesondere im Hinblick auf den EU AI Act. Die Schulung ist in vier Untertabs unterteilt:
+
+- **Grundlagen KI & ML:**  
+  Vermittelt die theoretischen Grundlagen der KI und des maschinellen Lernens, inklusive Definitionen, Lernverfahren, gängiger Modelle und Praxisbeispiele.
+
+- **Verantwortungsbewusster Einsatz:**  
+  Behandelt den sicheren und ethisch verantwortlichen Einsatz von KI-Systemen. Themen sind Risikobewertung, Sicherheitsprotokolle, Datenschutzmaßnahmen sowie ethische Überlegungen.
+
+- **Rechtliche Rahmenbedingungen:**  
+  Erläutert die gesetzlichen Vorgaben, insbesondere den EU AI Act, sowie Datenschutzbestimmungen (DSGVO) und ethische Aspekte. Dieser Tab vermittelt ein tiefgehendes Verständnis der rechtlichen und Compliance-Anforderungen.
+
+- **Praktische Anwendung:**  
+  Konzentriert sich auf die Integration von KI in Arbeitsprozesse, Validierung und Interpretation von KI-Ergebnissen und Fallstudien, um praxisnahes Wissen zu vermitteln.
+
+### Mitarbeitertest
+
+Der **Mitarbeitertest-Tab** (Implementierung in `tabs/tab_mitarbeitertest.py`) dient der interaktiven Überprüfung des Wissens zu den Inhalten des EU AI Acts und der damit verbundenen Compliance-Anforderungen. Neben einem Basis-Test gibt es auch erweiterte Versionen mit zahlreichen Fragen, die alle relevanten Aspekte (wie Risikokategorisierung, Datenschutz, technische Dokumentation, menschliche Aufsicht, Explainable AI und ethische Richtlinien) abfragen.  
+Mitarbeiter, die diesen Test bestehen, können ihr Verständnis der gesetzlichen Rahmenbedingungen sowie die Einhaltung der internen Compliance-Richtlinien bestätigen.
 
 ---
 
@@ -195,23 +224,4 @@ Für Fragen oder Anregungen kannst Du Dich gerne an Ralf Krümmel wenden:
 
 ---
 
-*Viel Spaß mit der Gemini Gradio App und beim Experimentieren mit moderner KI-Interaktion!*
-
-![image](https://github.com/user-attachments/assets/c785771f-83d1-48c9-b8a3-e9ab075b65df)
-
-![image](https://github.com/user-attachments/assets/7a721100-f290-436d-ab07-c85d2f8ede50)
-
-![image](https://github.com/user-attachments/assets/40d85c09-5916-4b29-a942-1fec52a103e1)
-
-![image](https://github.com/user-attachments/assets/47e76f7e-a443-4e8a-8ac1-c1a14de9c6d8)
-
-![image](https://github.com/user-attachments/assets/fe881386-deb0-4558-a752-9375945f1ef9)
-
-![image](https://github.com/user-attachments/assets/e87f77a8-9d8c-4bfc-b024-8cdd318e0186)
-
-
-![image](https://github.com/user-attachments/assets/af30a389-69f2-4d7c-b954-d0afc8ca81cc)
-
-
-
-
+*Viel Spaß mit der Gemini Gradio App, beim Experimentieren mit moderner KI-Interaktion und bei der Mitarbeiterschulung zu den EU AI Act Anforderungen!*
