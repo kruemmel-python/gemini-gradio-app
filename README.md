@@ -225,3 +225,15 @@ Für Fragen oder Anregungen kannst Du Dich gerne an Ralf Krümmel wenden:
 ---
 
 *Viel Spaß mit der Gemini Gradio App, beim Experimentieren mit moderner KI-Interaktion und bei der Mitarbeiterschulung zu den EU AI Act Anforderungen!*
+
+
+![image](https://github.com/user-attachments/assets/ae64938c-5ffc-4e32-96f2-1c08f4f02c01)
+
+![image](https://github.com/user-attachments/assets/0647db03-efe2-43b1-b649-8ac58785cd7c)
+
+![image](https://github.com/user-attachments/assets/281b0327-575d-44bb-bb38-81b75f754b3c)
+
+
+
+![image](https://github.com/user-attachments/assets/45721055-4bd3-4234-a073-3078bab1eda0)
+
