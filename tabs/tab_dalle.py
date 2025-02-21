@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Modul: tab_dalle.py
-Dieses Modul enthält die Klasse DalleTab, die die Schnittstelle für die DALL·E Bildgenerierung und -transformation 
+Dieses Modul enthält die Klasse DalleTab, die die Schnittstelle für die DALL·E Bildgenerierung und -transformation
 sowohl als eigenständige Anwendung als auch als Tab bereitstellt.
 """
 
@@ -17,7 +17,7 @@ class DalleTab:
 
     def build_tab(self):
         with gr.TabItem("Bildgenerierung (DALL·E)"):
-            gr.Markdown("## DALL·E 3 Bildgenerierung\nErstelle ein Bild über OpenAI DALL·E und transformiere es.")
+            gr.Markdown("## DALL·E 3 Bildgenerierung\nErstellt von **CipherCore**\nErstelle ein Bild über OpenAI DALL·E und transformiere es.")
             with gr.Row():
                 with gr.Column():
                     dalle_button = gr.Button("Generiere DALL·E Bild (1024x1024)")
@@ -61,7 +61,7 @@ class DalleTab:
     def run(self):
         demo = gr.Blocks(title="Bildgenerierung (DALL·E) - Standalone")
         with demo:
-            gr.Markdown("## DALL·E 3 Bildgenerierung (Standalone)\nErstelle ein Bild über OpenAI DALL·E und transformiere es.")
+            gr.Markdown("## DALL·E 3 Bildgenerierung (Standalone)\nErstellt von **CipherCore**\nErstelle ein Bild über OpenAI DALL·E und transformiere es.")
             with gr.Row():
                 with gr.Column():
                     dalle_button = gr.Button("Generiere DALL·E Bild (1024x1024)")

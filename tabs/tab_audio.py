@@ -4,6 +4,7 @@
 Modul: tab_audio.py
 Dieses Modul enthält die Klasse AudioTab, die den UI-Block für die Audio-Interaktion
 sowohl als eigenständige Gradio-Anwendung als auch als Tab für eine modulare Oberfläche bereitstellt.
+Entwickelt von CipherCore.
 """
 
 import gradio as gr
@@ -23,6 +24,7 @@ class AudioTab:
         with gr.TabItem("Audio-Interaktion"):
             gr.Markdown(
                 "## Audio-Interaktion\n"
+                "Entwickelt von CipherCore für sichere Programmierung.\n\n"
                 "Lade eine Audiodatei hoch und gib eine ANFRAGE ein.\n\n"
                 "**Hinweis:** Die Audiodatei darf maximal 4 MB groß sein."
             )
@@ -37,10 +39,11 @@ class AudioTab:
         """
         Startet die Audio-Interaktionsschnittstelle als eigenständige Gradio-Anwendung.
         """
-        demo = gr.Blocks(title="Audio-Interaktion - Standalone")
+        demo = gr.Blocks(title="Audio-Interaktion - Standalone - CipherCore")
         with demo:
             gr.Markdown(
                 "## Audio-Interaktion (Standalone)\n"
+                "Entwickelt von CipherCore für sichere Programmierung.\n\n"
                 "Lade eine Audiodatei hoch und gib eine ANFRAGE ein.\n\n"
                 "**Hinweis:** Die Audiodatei darf maximal 4 MB groß sein."
             )

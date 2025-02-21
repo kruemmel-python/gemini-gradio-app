@@ -1,23 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Modul: tab_mitarbeitertest.py
-Beschreibung:
-Dieses Modul implementiert einen interaktiven Mitarbeitertest zum EU AI Act
-mit Fragen. Bei der Auswertung werden für jede falsch beantwortete Frage
-der Fragetext, die vom Benutzer gegebene Antwort sowie die korrekte Antwort
-und eine kurze Erklärung angezeigt.
-"""
-
-import gradio as gr
-from typing import Union#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
 Modul: tab_mitarbeitertest_eu_ai_act.py
 Beschreibung:
 Dieses Modul implementiert einen interaktiven Mitarbeitertest zum EU AI Act mit 52 Fragen.
 Für jede Frage wird der Fragetext, vier Antwortoptionen, die korrekte Antwort und eine kurze Erklärung angegeben.
 Bei der Auswertung wird bei falscher Beantwortung jeweils das Feedback (Frage, gegebene Antwort, korrekte Antwort und Erklärung) angezeigt.
+Das Programm wurde von CipherCore erstellt.
 """
 
 import gradio as gr
@@ -36,7 +25,7 @@ class MitarbeiterTestEUAIAct:
             "frage5": "Mitarbeiter müssen wissen, welche Daten sie eingeben dürfen und wie sie KI-Ergebnisse kritisch bewerten.",
             "frage6": "Unternehmen müssen Nutzer informieren, wenn KI-generierte Inhalte in Entscheidungen einfließen.",
             "frage7": "Mitarbeiter sollten geschult werden, Verzerrungen in KI-Ergebnissen zu erkennen und gegenzusteuern.",
-            "frage8": "KI darf keine sensiblen oder personenbezogenen Daten ohne klare Rechtsgrundlage verarbeiten.",
+            "frage8": "KI darf keine sensiblen oder personenbezogene Daten ohne klare Rechtsgrundlage verarbeiten.",
             "frage9": "Entscheidungen, die durch KI getroffen oder unterstützt werden, müssen überprüfbar bleiben.",
             "frage10": "Eine Schulung stellt sicher, dass Mitarbeiter die Risiken und Verantwortlichkeiten bei der Nutzung von KI verstehen.",
             "frage11": "Besonders wichtig ist eine Schulung bei automatisierter Kundeninteraktion, Datenverarbeitung und der Erstellung von Texten oder Berichten.",
@@ -82,7 +71,7 @@ class MitarbeiterTestEUAIAct:
             "frage51": "Transparenz hilft, das Vertrauen der Nutzer zu gewinnen und sicherzustellen, dass sie informierte Entscheidungen treffen können.",
             "frage52": "Durch Schulung der Mitarbeiter, Einhaltung der Datenschutzbestimmungen und regelmäßige Überprüfung der KI-Systeme."
         }
-        
+
         # ---------------------------------------------------------
         # 2) FRAGEN: TEXT, OPTIONEN, ERKLÄRUNG
         # ---------------------------------------------------------
@@ -161,7 +150,7 @@ class MitarbeiterTestEUAIAct:
                 "text": "Welche Rolle spielt der Datenschutz bei der Nutzung von KI?",
                 "optionen": [
                     "KI darf alle Daten ohne Einschränkung verarbeiten.",
-                    "KI darf keine sensiblen oder personenbezogenen Daten ohne klare Rechtsgrundlage verarbeiten.",
+                    "KI darf keine sensiblen oder personenbezogene Daten ohne klare Rechtsgrundlage verarbeiten.",
                     "Datenschutz ist nur für Banken wichtig.",
                     "Datenschutz gilt nur für manuelle Prozesse."
                 ],
@@ -674,8 +663,11 @@ class MitarbeiterTestEUAIAct:
     def build_tab(self) -> None:
         with gr.TabItem("Mitarbeitertest EU AI Act"):
             gr.Markdown(
-                """
+                f"""
                 # Mitarbeitertest EU AI Act
+
+                **Erstellt von: CipherCore - Sicherheit in der Programmierung**
+
                 Bitte beantworte die folgenden 52 Fragen, um dein Wissen über den EU AI Act zu überprüfen.
                 """
             )
@@ -754,7 +746,7 @@ class MitarbeiterTestEUAIAct:
             )
 
 if __name__ == "__main__":
-    with gr.Blocks(title="Mitarbeitertest EU AI Act") as demo:
+    with gr.Blocks(title="Mitarbeitertest EU AI Act - CipherCore") as demo:
         MitarbeiterTestEUAIAct().build_tab()
     demo.launch()
 
@@ -1522,6 +1514,8 @@ class MitarbeiterTest:
             gr.Markdown(
                 """
                 # Mitarbeitertest (50 Fragen) zum EU AI Act
+                **Erstellt von: CipherCore - Sicherheit in der Programmierung**
+
                 **Wichtig:**
                 - Dieser Test ist nicht erschöpfend und deckt nicht alle Nuancen des EU AI Acts ab.
                 - Er dient als Ergänzung zu umfassenderen Schulungen und Informationsmaterialien.
@@ -1615,6 +1609,6 @@ class MitarbeiterTest:
 # Standalone-Ausführung (zum Testen ohne Einbindung in eine größere App)
 # ------------------------------------------------------------------------------
 if __name__ == "__main__":
-    with gr.Blocks(title="Mitarbeitertest - Fragen zum EU AI Act") as demo:
+    with gr.Blocks(title="Mitarbeitertest - Fragen zum EU AI Act - CipherCore") as demo:
         MitarbeiterTest50().build_tab()
     demo.launch()

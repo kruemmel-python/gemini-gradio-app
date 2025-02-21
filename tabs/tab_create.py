@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Modul: tab_create.py
-Dieses Modul enthält die Klasse CreateTab, die die Schnittstelle für Inhaltserstellung 
+Dieses Modul enthält die Klasse CreateTab, die die Schnittstelle für Inhaltserstellung
 und Export sowohl als eigenständige Anwendung als auch als Tab bereitstellt.
+Entwickelt von CipherCore - Sicherheit in der Programmierung.
 """
 
 import gradio as gr
@@ -17,6 +18,7 @@ class CreateTab:
         with gr.TabItem("Inhaltserstellung & Export"):
             gr.Markdown(
                 "## Inhaltserstellung & Export\n"
+                "von **CipherCore** - Sicherheit in der Programmierung\n\n"
                 "Gib eine ANFRAGE ein, um mit der KI einen Inhalt zu erstellen. Wähle anschließend das gewünschte Exportformat aus, "
                 "und der Inhalt wird als Datei gespeichert.\n\n"
                 "Exportformate: Word, Excel, CSV, PDF."
@@ -33,6 +35,7 @@ class CreateTab:
         with demo:
             gr.Markdown(
                 "## Inhaltserstellung & Export (Standalone)\n"
+                "von **CipherCore** - Sicherheit in der Programmierung\n\n"
                 "Gib eine ANFRAGE ein, um mit der KI einen Inhalt zu erstellen. Wähle anschließend das gewünschte Exportformat aus, "
                 "und der Inhalt wird als Datei gespeichert.\n\n"
                 "Exportformate: Word, Excel, CSV, PDF."

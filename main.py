@@ -3,6 +3,7 @@
 """
 Hauptprogramm zur Ausführung der modularisierten Gradio App mit mehreren Tabs.
 Jeder Tab ist als eigenständiges Modul implementiert und kann auch separat ausgeführt werden.
+Erstellt von CipherCore.
 """
 
 import gradio as gr
@@ -16,12 +17,13 @@ from tabs.tab_dalle import DalleTab
 from tabs.tab_info import InfoTab
 from tabs.tab_training import TrainingTabs
 from tabs.tab_mitarbeitertest import MitarbeiterTestEUAIAct
+from tabs.tab_pdf_scan import PdfScanTab # Importiere den neuen PDF-Scan-Tab!
 
 def main():
     app = GeminiApp()
-    demo = gr.Blocks(title="KI Interaktion")
+    demo = gr.Blocks(title="KI Interaktion - CipherCore")
     with demo:
-        gr.Markdown("# KI Interaktion\nWähle einen Modus zur Interaktion mit der KI:")
+        gr.Markdown("# KI Interaktion - CipherCore\nWähle einen Modus zur Interaktion mit der KI:")
         with gr.Tabs():
             AudioTab(app).build_tab()
             ChatTab(app).build_tab()
@@ -32,6 +34,7 @@ def main():
             InfoTab().build_tab()
             TrainingTabs().build_tab()
             MitarbeiterTestEUAIAct().build_tab()
+            PdfScanTab().build_tab() # Füge den PDF-Scan-Tab hier hinzu!
     demo.launch(share=True)
 
 if __name__ == "__main__":

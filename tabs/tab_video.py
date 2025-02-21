@@ -3,6 +3,7 @@
 """
 Modul: tab_video.py
 Dieses Modul enthält die Klasse VideoTab für die Videoanalyse – eigenständig ausführbar und integrierbar.
+Entwickelt von CipherCore für höchste Sicherheitsstandards in der Programmierung.
 """
 
 import gradio as gr
@@ -15,7 +16,7 @@ class VideoTab:
     def build_tab(self):
         with gr.TabItem("Videoanalyse"):
             gr.Markdown(
-                "## Videoanalyse\n"
+                "## Videoanalyse von CipherCore\n"
                 "Gib eine ANFRAGE ein und lade ein Video hoch, das analysiert werden soll.\n\n"
                 "**Hinweis:** Das Video darf maximal 20 MB groß sein."
             )
@@ -27,10 +28,10 @@ class VideoTab:
             btn_video.click(fn=self.app.process_video, inputs=[prompt_video, video_input], outputs=output_video)
 
     def run(self):
-        demo = gr.Blocks(title="Videoanalyse - Standalone")
+        demo = gr.Blocks(title="Videoanalyse - CipherCore")
         with demo:
             gr.Markdown(
-                "## Videoanalyse (Standalone)\n"
+                "## Videoanalyse (Standalone) von CipherCore\n"
                 "Gib eine ANFRAGE ein und lade ein Video hoch, das analysiert werden soll.\n\n"
                 "**Hinweis:** Das Video darf maximal 20 MB groß sein."
             )

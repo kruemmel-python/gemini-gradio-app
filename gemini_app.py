@@ -31,7 +31,7 @@ from typing import Optional, Union, List, Tuple
 # Logging-Konfiguration
 # -------------------------------------------------------------------------------
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO, # Von DEBUG zu INFO geändert! Die Hölle braucht keine unnötigen Details.
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
@@ -43,7 +43,7 @@ logger.info("Modul gemini_app.py geladen.")
 def ensure_pil_image(image: Union[Image.Image, np.ndarray]) -> Image.Image:
     """
     Stellt sicher, dass das gegebene Bild ein PIL.Image-Objekt ist.
-    
+
     Verwendet strukturelles Pattern Matching (Python 3.12):
     """
     match image:
@@ -68,12 +68,16 @@ if OPENAI_API_KEY is None:
     logger.error("OPENAI_API_KEY nicht in der .env-Datei gefunden!")
     raise ValueError("OPENAI_API_KEY nicht gefunden! Bitte in der .env-Datei definieren.")
 
+
 # -------------------------------------------------------------------------------
 # Initialisierung des Gemini Clients und OpenAI API-Key
 # -------------------------------------------------------------------------------
 client = genai.Client(api_key=API_KEY)
 logger.info("Gemini Client initialisiert.")
 openai.api_key = OPENAI_API_KEY
+
+sys_instruct = "Du bist Cipher ein Assistent unseres Untermehmens CipherCore, wir stehen für Sicherheit in der Programmierung. Deine Antworten immer in Deutsch! Erwähne niemals die beigefügte Textdatei!."
+
 
 # -------------------------------------------------------------------------------
 # Geräteauswahl (CUDA falls verfügbar)
@@ -118,8 +122,8 @@ class GeminiApp:
         """
         Validiert die Länge des Prompts.
         """
-        if len(prompt) > 100000:
-            raise ValueError("Der Prompt ist zu lang. Bitte maximal 100000 Zeichen verwenden.")
+        if len(prompt) > 1000000:
+            raise ValueError("Der Prompt ist zu lang. Bitte maximal 1000000 Zeichen verwenden.")
         return True
 
     def validate_file_size(self, file_path: str, max_size: int) -> bool:
@@ -142,7 +146,7 @@ class GeminiApp:
             ext = ext.lower()
             if ext not in allowed_audio:
                 raise ValueError(f"Unsupported audio file type: {ext}")
-            self.validate_file_size(audio_file, 4_000_000)
+            self.validate_file_size(audio_file, 6_000_000)
             with open(audio_file, "rb") as f:
                 audio_bytes = f.read()
             logger.debug(f"Audiodatei '{audio_file}' wurde eingelesen ({len(audio_bytes)} Bytes).")
@@ -160,7 +164,7 @@ class GeminiApp:
             audio_part = types.Part.from_bytes(data=audio_bytes, mime_type=mime_type)
             response = self.client.models.generate_content(
                 model='gemini-2.0-flash-thinking-exp-01-21',
-                contents=[prompt, audio_part]
+                contents=[sys_instruct, prompt, audio_part]
             )
             logger.info("Anfrage (Audio) gesendet.")
             return response.text
@@ -171,13 +175,14 @@ class GeminiApp:
             logger.exception("Allgemeiner Fehler in process_audio:")
             return f"Fehler: {str(e)}"
 
+
     def process_chat(self, prompt: str, image_file: Optional[Union[str, np.ndarray]] = None) -> str:
         """
         Verarbeitet einen Chat-Prompt mit optionalem Bild.
         """
         try:
             self.validate_prompt(prompt)
-            contents: List[Union[types.Part, str]] = [prompt]
+            contents: List[Union[types.Part, str]] = [sys_instruct, prompt]
             if image_file is not None:
                 if isinstance(image_file, np.ndarray):
                     if image_file.max() <= 1.0:
@@ -253,7 +258,7 @@ class GeminiApp:
             video_part = types.Part.from_bytes(data=video_bytes, mime_type=mime_type)
             response = self.client.models.generate_content(
                 model='gemini-2.0-flash-thinking-exp-01-21',
-                contents=[prompt, video_part]
+                contents=[sys_instruct, prompt, video_part]
             )
             logger.info("Anfrage(Video) gesendet.")
             return response.text
@@ -264,25 +269,36 @@ class GeminiApp:
             logger.exception("Allgemeiner Fehler in process_video:")
             return f"Fehler: {str(e)}"
 
-    def process_file(self, prompt: str, file_path: str) -> str:
+
+    def process_file(self, prompt: str, file_path: Union[str, tempfile._TemporaryFileWrapper]) -> str:
         """
         Verarbeitet eine Datei mit einem Prompt.
         """
         try:
             self.validate_prompt(prompt)
+
+            # Wenn es sich um ein temporäres Dateiobjekt handelt, hole den Dateipfad
+            if isinstance(file_path, tempfile._TemporaryFileWrapper):
+                file_path = file_path.name
+
             allowed_docs = {
                 ".txt", ".c", ".cpp", ".py", ".java", ".php", ".sql", ".html",
                 ".doc", ".docx", ".pdf", ".rtf", ".dot", ".dotx", ".hwp", ".hwpx",
                 ".csv", ".tsv", ".xls", ".xlsx"
             }
+
             _, ext = os.path.splitext(file_path)
             ext = ext.lower()
             if ext not in allowed_docs:
                 raise ValueError(f"Unsupported document file type: {ext}")
-            self.validate_file_size(file_path, 4_000_000)
+
+            self.validate_file_size(file_path, 7_000_000)
+
             with open(file_path, "rb") as f:
                 file_bytes = f.read()
+
             logger.debug(f"Datei '{file_path}' wurde eingelesen ({len(file_bytes)} Bytes).")
+
             mime_map = {
                 ".txt": "text/plain",
                 ".c": "text/plain",
@@ -305,13 +321,17 @@ class GeminiApp:
                 ".xls": "application/vnd.ms-excel",
                 ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             }
+
             mime_type = mime_map.get(ext, "application/octet-stream")
+
             logger.debug(f"Verwendeter MIME-Typ für Datei: {mime_type}")
+
             contents = [prompt, types.Part.from_bytes(data=file_bytes, mime_type=mime_type)]
             response = self.client.models.generate_content(
                 model='gemini-2.0-flash-thinking-exp-01-21',
                 contents=contents
             )
+
             logger.info("Anfrage(Datei) gesendet.")
             return response.text
         except ValueError as ve:
@@ -320,6 +340,7 @@ class GeminiApp:
         except Exception as e:
             logger.exception("Allgemeiner Fehler in process_file:")
             return f"Fehler: {str(e)}"
+
 
     def process_create(self, prompt: str, export_format: str) -> str:
         """

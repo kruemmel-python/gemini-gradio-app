@@ -4,6 +4,7 @@
 Modul: tab_chat.py
 Dieses Modul enthält die Klasse ChatTab, die den UI-Block für Chat & Bildanalyse
 sowohl als eigenständige Anwendung als auch als Tab bereitstellt.
+Erstellt von CipherCore.
 """
 
 import gradio as gr
@@ -15,7 +16,7 @@ class ChatTab:
 
     def build_tab(self):
         with gr.TabItem("Chat & Bildanalyse"):
-            gr.Markdown("## Chat & Bildanalyse\nGib eine Chat-ANFRAGE ein und (optional) lade ein Bild hoch, das analysiert werden soll.")
+            gr.Markdown("## CipherCore - Chat & Bildanalyse\nGib eine Chat-ANFRAGE ein und (optional) lade ein Bild hoch, das analysiert werden soll.")
             with gr.Row():
                 prompt_chat = gr.Textbox(label="ANFRAGE", placeholder="Deine Frage an die KI")
                 image_input = gr.Image(label="Bild hochladen (optional)")
@@ -24,9 +25,9 @@ class ChatTab:
             btn_chat.click(fn=self.app.process_chat, inputs=[prompt_chat, image_input], outputs=output_chat)
 
     def run(self):
-        demo = gr.Blocks(title="Chat & Bildanalyse - Standalone")
+        demo = gr.Blocks(title="CipherCore - Chat & Bildanalyse - Standalone")
         with demo:
-            gr.Markdown("## Chat & Bildanalyse (Standalone)\nGib eine Chat-ANFRAGE ein und (optional) lade ein Bild hoch, das analysiert werden soll.")
+            gr.Markdown("## CipherCore - Chat & Bildanalyse (Standalone)\nGib eine Chat-ANFRAGE ein und (optional) lade ein Bild hoch, das analysiert werden soll.")
             with gr.Row():
                 prompt_chat = gr.Textbox(label="ANFRAGE", placeholder="Deine Frage an die KI")
                 image_input = gr.Image(label="Bild hochladen (optional)")

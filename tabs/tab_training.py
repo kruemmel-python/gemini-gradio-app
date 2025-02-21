@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Modul: tab_training.py
-Dieses Modul enthält die Klasse TrainingTabs, die einen UI-Bereich mit vier Schulungstabs 
+Dieses Modul enthält die Klasse TrainingTabs, die einen UI-Bereich mit vier Schulungstabs
 für den Umgang mit Künstlicher Intelligenz bereitstellt.
 Die Themen der Schulung umfassen:
 1. Grundlagen der Künstlichen Intelligenz und maschinelles Lernen.
@@ -19,6 +19,15 @@ class TrainingTabs:
             gr.Markdown(
                 """
                 # Mitarbeiterschulung für den Umgang mit Künstlicher Intelligenz
+                """
+            )
+            gr.Markdown(
+                """
+                Diese Schulung wird Ihnen präsentiert von **CipherCore**, Ihrem Partner für Sicherheit in der Programmierung.
+                """
+            )
+            gr.Markdown(
+                """
                 Bitte wähle einen der folgenden Untertabs für die entsprechende Schulung:
                 """
             )
@@ -307,7 +316,7 @@ class TrainingTabs:
                         ---
 
                         **Diese Schulung ist nun abgeschlossen.  Wir hoffen, Sie haben einen guten Einblick in die Grundlagen der Künstlichen Intelligenz und des maschinellen Lernens erhalten!**
-                                                
+
                         """
                     )
                 with gr.TabItem("Verantwortungsbewusster Einsatz"):
@@ -577,7 +586,7 @@ class TrainingTabs:
 
                         *   **Rechtsgrundlage für die Verarbeitung personenbezogener Daten definieren:**  Vor der Verarbeitung personenbezogener Daten muss eine **gültige Rechtsgrundlage** identifiziert werden (z.B. Einwilligung, Vertrag, berechtigtes Interesse).
 
-                        *   **Informationspflichten erfüllen:**  Betroffene Personen müssen **umfassend über die Verarbeitung ihrer personenbezogenen Daten informiert werden** (Art. 13, 14 DSGVO).  Dies umfasst Informationen über den Zweck der Verarbeitung, die Rechtsgrundlage, die Kategorien personenbezogener Daten, die Empfänger der Daten, die Speicherdauer und die Rechte der betroffenen Personen.
+                        *   **Informationspflichten erfüllen:**  Betroffene Personen müssen **umfassend über die Verarbeitung ihrer personenbezogener Daten informiert werden** (Art. 13, 14 DSGVO).  Dies umfasst Informationen über den Zweck der Verarbeitung, die Rechtsgrundlage, die Kategorien personenbezogener Daten, die Empfänger der Daten, die Speicherdauer und die Rechte der betroffenen Personen.
 
                         *   **Rechte der betroffenen Personen gewährleisten:**  Betroffene Personen haben **umfassende Rechte** nach der DSGVO, darunter das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch.  Diese Rechte müssen respektiert und umgesetzt werden.
 
@@ -860,13 +869,22 @@ class TrainingTabs:
                         Diese erweiterte Schulung bietet einen umfassenden Rahmen, um Ihre Mitarbeiter im Einklang mit dem EU AI Act zu schulen.  Denken Sie daran, diese an die spezifischen Bedürfnisse Ihres Unternehmens und die verwendeten KI-Systeme anzupassen.
                         """
                     )
-                    
+
     def run(self):
-        demo = gr.Blocks(title="Mitarbeiterschulung - KI")
+        demo = gr.Blocks(title="CipherCore Mitarbeiterschulung - KI")
         with demo:
             gr.Markdown(
                 """
                 # Mitarbeiterschulung für den Umgang mit Künstlicher Intelligenz
+                """
+            )
+            gr.Markdown(
+                """
+                Diese Mitarbeiterschulung zum Thema Künstliche Intelligenz wird Ihnen von **CipherCore** präsentiert.
+                """
+            )
+            gr.Markdown(
+                """
                 Wähle eines der folgenden Schulungsthemen aus:
                 """
             )
@@ -875,15 +893,15 @@ class TrainingTabs:
                     gr.Markdown(
                         """
                         ## Grundlagen der Künstlichen Intelligenz und maschinelles Lernen
-                        
+
                         In dieser Schulung werden die Grundlagen der Künstlichen Intelligenz (KI) und des maschinellen Lernens (ML) vermittelt.
-                        
+
                         **Schwerpunkte:**
                         - Definition von KI und ML, Unterschiede zwischen schwacher und starker KI.
                         - Überblick über überwachtes, unüberwachtes und bestärkendes Lernen.
                         - Vorstellung wichtiger Modelle wie neuronale Netze, Entscheidungsbäume und Support Vector Machines.
                         - Praxisbeispiele und aktuelle Trends in der KI-Forschung.
-                        
+
                         Diese Schulung dient als anerkannter Einstieg in die Welt der Künstlichen Intelligenz.
                         """
                     )
@@ -891,31 +909,31 @@ class TrainingTabs:
                     gr.Markdown(
                         """
                         ## Verantwortungsbewusster und sicherer Einsatz von KI-Systemen
-                        
+
                         Diese Schulung vermittelt den verantwortungsvollen Umgang mit KI-Systemen.
-                        
+
                         **Schwerpunkte:**
                         - Risikoidentifikation und -bewertung beim Einsatz von KI.
                         - Umsetzung von Sicherheits- und Datenschutzmaßnahmen.
                         - Ethische Überlegungen und die Bedeutung von Best Practices.
                         - Empfehlungen zur Minimierung potenzieller Fehlanwendungen.
-                        
-                        Ziel ist es, den sicheren und verantwortungsvollen Einsatz von KI im Unternehmen sicherzustellen.
+
+                        Ziel ist es, den sicheren und verantwortungsbewussten Einsatz von KI im Unternehmen sicherzustellen.
                         """
                     )
                 with gr.TabItem("Rechtliche Rahmenbedingungen"):
                     gr.Markdown(
                         """
                         ## Rechtliche Rahmenbedingungen und ethische Aspekte
-                        
+
                         In dieser Schulung werden die gesetzlichen Vorgaben und ethischen Fragestellungen im Umgang mit KI behandelt.
-                        
+
                         **Schwerpunkte:**
                         - Überblick über den AI Act Europa und weitere relevante gesetzliche Regelungen.
                         - Wichtige Datenschutz- und Compliance-Anforderungen.
                         - Diskussion ethischer Aspekte wie Transparenz, Fairness und Diskriminierungsvermeidung.
                         - Mögliche rechtliche Konsequenzen bei Nichteinhaltung der Vorschriften.
-                        
+
                         Diese Schulung vermittelt ein tiefgehendes Verständnis der rechtlichen und ethischen Rahmenbedingungen.
                         """
                     )
@@ -923,15 +941,15 @@ class TrainingTabs:
                     gr.Markdown(
                         """
                         ## Praktische Anwendung und Interpretation von KI-Ergebnissen
-                        
+
                         Diese Schulung konzentriert sich auf die praktische Umsetzung und Auswertung von KI-Anwendungen.
-                        
+
                         **Schwerpunkte:**
                         - Integration von KI-Modellen in bestehende Arbeitsprozesse.
                         - Methoden zur Validierung und kritischen Analyse von KI-Ergebnissen.
                         - Fallstudien aus der Industrie als Praxisbeispiele.
                         - Strategien zur Identifizierung und Behebung von Fehlern in KI-Anwendungen.
-                        
+
                         Ziel ist es, den Mitarbeitern praxisorientierte Fähigkeiten zu vermitteln, um KI-Systeme effektiv zu nutzen.
                         """
                     )

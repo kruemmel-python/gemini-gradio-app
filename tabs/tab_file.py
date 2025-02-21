@@ -4,6 +4,7 @@
 Modul: tab_file.py
 Dieses Modul enthält die Klasse FileTab, die die Dateianalyse-Schnittstelle
 sowohl als eigenständige Anwendung als auch als Tab bereitstellt.
+Entwickelt von CipherCore für höchste Sicherheitsstandards in der Programmierung.
 """
 
 import gradio as gr
@@ -14,9 +15,10 @@ class FileTab:
         self.app = app
 
     def build_tab(self):
-        with gr.TabItem("Dateianalyse"):
+        with gr.TabItem("CipherCore Dateianalyse"):
             gr.Markdown(
-                "## Dateianalyse\n"
+                "## CipherCore Dateianalyse\n"
+                "Entwickelt von CipherCore für höchste Sicherheitsstandards.\n\n"
                 "Gib eine ANFRAGE ein und lade eine Datei hoch. Unterstützte Dateitypen sind:\n\n"
                 "• Plain Text (TXT)\n"
                 "• Code-Dateien (C, CPP, PY, JAVA, PHP, SQL, HTML)\n"
@@ -33,10 +35,11 @@ class FileTab:
             btn_file.click(fn=self.app.process_file, inputs=[prompt_file, file_input], outputs=output_file)
 
     def run(self):
-        demo = gr.Blocks(title="Dateianalyse - Standalone")
+        demo = gr.Blocks(title="CipherCore Dateianalyse - Standalone")
         with demo:
             gr.Markdown(
-                "## Dateianalyse (Standalone)\n"
+                "## CipherCore Dateianalyse (Standalone)\n"
+                "Entwickelt von CipherCore für höchste Sicherheitsstandards.\n\n"
                 "Gib eine ANFRAGE ein und lade eine Datei hoch. Unterstützte Dateitypen sind:\n\n"
                 "• Plain Text (TXT)\n"
                 "• Code-Dateien (C, CPP, PY, JAVA, PHP, SQL, HTML)\n"
