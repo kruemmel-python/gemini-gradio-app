@@ -9,6 +9,8 @@ Eine modulare, objektorientierte Gradio-Anwendung zur Interaktion mit der Gemini
 Dieses Projekt wurde von **Ralf Krümmel, Entwickler bei CipherCore**, entwickelt und demonstriert Best Practices in Python 3.12. **CipherCore hat dieses Projekt entwickelt, um es als Schulungs- und Demonstrationsplattform für sichere KI-Entwicklung zu nutzen.**
 
 ---
+![image](https://github.com/user-attachments/assets/54dca67f-f0e8-40f3-a332-3a2996770154)
+
 
 ## 📌 Inhaltsverzeichnis
 
@@ -177,6 +179,19 @@ Für Fragen oder Anregungen:
 GitHub: [kruemmel-python](https://github.com/kruemmel-python)  
 
 ---
+
+![image](https://github.com/user-attachments/assets/bb3df836-5ab5-4ab3-9d3c-b85788de28fc)
+
+![image](https://github.com/user-attachments/assets/afa896f5-258f-4fcd-ab84-36a5dbc43b7d)
+
+![image](https://github.com/user-attachments/assets/c3827756-7bfa-4b43-9a4d-1d078d81b841)
+
+![image](https://github.com/user-attachments/assets/741bae4e-5c58-4e64-8798-ad8fb15ca66f)
+
+
+![image](https://github.com/user-attachments/assets/ce05a6f7-7ea4-4391-b794-789fa6d9a2f4)
+
+
 
 
 
