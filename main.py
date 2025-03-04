@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+main.py
 Hauptprogramm zur Ausführung der modularisierten Gradio App mit mehreren Tabs.
 Jeder Tab ist als eigenständiges Modul implementiert und kann auch separat ausgeführt werden.
 Erstellt von CipherCore.

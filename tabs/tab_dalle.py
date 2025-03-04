@@ -52,7 +52,7 @@ class DalleTab:
             output_params = [original_output, generated_output]
             generate_button.click(fn=self.app.process_inputs, inputs=input_params, outputs=output_params)
             # Falls ein generiertes Bild bereits existiert, laden
-            generated_image_path = "image.webp"
+            generated_image_path = "kunst.webp" # Korrekter Dateiname
             if os.path.exists(generated_image_path):
                 loaded_img = self.app.load_image_from_file(generated_image_path)
                 if loaded_img:
